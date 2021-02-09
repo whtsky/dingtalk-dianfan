@@ -4,9 +4,16 @@ from datetime import datetime
 import chinese_calendar
 import requests
 
+_postfixes = ["呀", "啦", "哟", "了吗？", "咯"]
+
+
+def get_postfix(date: datetime) -> str:
+    return _postfixes[date.weekday() % len(_postfixes)]
+
 
 def main():
-    is_workday_today = chinese_calendar.is_workday(datetime.today())
+    today = datetime.today()
+    is_workday_today = chinese_calendar.is_workday(today)
     print("is_workday_today: ", is_workday_today)
 
     if not is_workday_today:
@@ -17,7 +24,7 @@ def main():
         url,
         json={
             "msgtype": "text",
-            "text": {"content": "点饭"},
+            "text": {"content": f"点饭{get_postfix(today)}"},
             "at": {"atMobiles": [], "isAtAll": True},
         },
     )
