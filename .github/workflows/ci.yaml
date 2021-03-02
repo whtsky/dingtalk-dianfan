@@ -10,20 +10,20 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-python@v2
         with:
-          python-version: "3.9"
-          architecture: "x64"
+          python-version: '3.9'
+          architecture: 'x64'
       - uses: snok/install-poetry@v1.1.1
       - run: poetry install
       - run: poetry run black --check .
-  mypy:
-    name: mypy
+  test:
+    name: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-python@v2
         with:
-          python-version: "3.9"
-          architecture: "x64"
+          python-version: '3.9'
+          architecture: 'x64'
       - uses: snok/install-poetry@v1.1.1
       - run: poetry install
-      - run: poetry run mypy dianfan.py
+      - run: poetry run pytest .
