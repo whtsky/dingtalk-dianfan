@@ -45,14 +45,17 @@ def main():
     if not is_workday_today:
         return
 
+    content = f"点饭{get_postfix(today)}"
+    remaining_dianfan_count = get_remaining_dianfan_count(today)
+    if remaining_dianfan_count < 5:
+        content += f"\n本月还能点{remaining_dianfan_count}次饭\n记得设零点的闹钟抢面包哟"
+
     url = f"https://oapi.dingtalk.com/robot/send?access_token={os.getenv('DINGTALK_ACCESS_TOKEN')}"
     response = requests.post(
         url,
         json={
             "msgtype": "text",
-            "text": {
-                "content": f"点饭{get_postfix(today)}\n本月还能点{get_remaining_dianfan_count(today)}次饭"
-            },
+            "text": {"content": content},
             "at": {"atMobiles": [], "isAtAll": True},
         },
     )
