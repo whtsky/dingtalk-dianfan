@@ -1,7 +1,7 @@
 on:
   schedule:
     # this is UTC time
-    - cron: "0 8 * * *"
+    - cron: '0 8 * * *'
 name: Cron workflow
 jobs:
   cron:
@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: 3.9
-          architecture: "x64"
+          architecture: 'x64'
       - uses: snok/install-poetry@v1.1.4
       - run: poetry install
       - run: poetry run python dianfan.py
