@@ -13,7 +13,7 @@ jobs:
         with:
           python-version: 3.9
           architecture: 'x64'
-      - uses: snok/install-poetry@v1.1.4
+      - uses: snok/install-poetry@v1.1.6
       - run: poetry install
       - run: poetry run python dianfan.py
         env:
