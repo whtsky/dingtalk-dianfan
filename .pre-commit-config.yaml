@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.18.2
+    rev: v2.19.0
     hooks:
       - id: pyupgrade
         args: ['--py39-plus']
@@ -10,7 +10,7 @@ repos:
       - id: reorder-python-imports
         args: ['--py39-plus']
   - repo: https://github.com/psf/black
-    rev: 21.5b1
+    rev: 21.5b2
     hooks:
       - id: black
   - repo: https://github.com/pre-commit/pre-commit-hooks
