@@ -5,7 +5,7 @@ name = "dingtalk-dianfan"
 version = "0.1.0"
 
 [tool.poetry.dependencies]
-chinesecalendar = "^1.5.0"
+chinesecalendar = "^1.5.1"
 python = "^3.9"
 requests = "^2.25.1"
 
